@@ -3,10 +3,7 @@
 The TkXUI Python library allows you to create frameless, modern and fully customizable GUIs using the simplicity of the Tkinter API.
 
 The library also implements a JSON loader to define your GUIs (windows, buttons, labels, etc.) with JSON for a fast and reliable UI design.
-It supports all kind of widgets (both ttk and tkinter widgets), styling and theming like in CSS with id-class system.</br></br>
-![image](https://user-images.githubusercontent.com/56755685/121713360-1131ed80-cadd-11eb-94cc-8fd44b9ed032.png)
-
-</br>
+It supports all kind of widgets (both ttk and tkinter widgets), styling and theming like in CSS with id-class system.
 
 
 ## Installation
