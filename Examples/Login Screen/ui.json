@@ -1,0 +1,101 @@
+{
+    "doctype":"ui-definition",
+
+    "widget:labelEntry":{
+        "tk.Frame":{
+            "bg":"#3A3737",
+            "name":"frame",
+            "pack_options":{
+                "fill":"both",
+                "expand":"1",
+                "padx":"10"
+            },
+            "tk.Label":{
+                "name":"label",
+                "text":"XXX",
+                "bg":"#3A3737",
+                "fg":"white",
+                "pack_options":{
+                    "anchor":"nw",
+                    "pady":"(25, 0)",
+                    "padx":"5"
+                }
+            },
+            "ttk.Entry":{
+                "name":"entry",
+                "pack_options":{
+                    "anchor":"nw",
+                    "padx":"24",
+                    "fill":"x"
+                },
+                "font":"Calibri 11 bold"
+            }
+        }
+    },
+
+    "main":{
+        "tk.Frame":{
+            "name":"loginFrame",
+            "bg":"#3A3737",
+            "pack_options":{
+                "fill":"both",
+                "expand":"1",
+                "pady":"(30, 50)",
+                "padx":"35"
+            },
+            "tk.Label":{
+                "pack_options":{
+                    "pady":"(25, 0)"
+                },
+                "bg":"#3A3737",
+                "name":"githubLogo"
+            },
+            "@labelEntry":{
+                "name":"emailEntry"
+            },
+            "@labelEntry":{
+                "name":"passwordEntry"
+            },
+            "tk.Button":{
+                "border":"0",
+                "bg":"green",
+                "cursor":"hand2",
+                "width":"11",
+                "text":"Login",
+                "fg":"white",
+                "name":"submitButton",
+                "class":"lol",
+                "activebackground":"#3A3737",
+                "activeforeground":"white",
+                "font":"Verdana 13 normal"
+            },
+            "tk.Label":{
+                "text":"Forgot your password ?",
+                "fg":"lightblue",
+                "bg":"#3A3737",
+                "cursor":"hand2",
+                "name":"label_test",
+                "class":"lol",
+                "pack_options":{
+                    "anchor":"se",
+                    "padx":"(0, 5)",
+                    "pady":"(15, 10)"
+                }
+            }
+        }
+    },
+
+    "border":{
+        "tk.Label":{
+            "name":"title",
+            "text":"Login",
+            "fg":"white",
+            "bg":"#2A2A2A",
+            "font":"Verdana 11 normal",
+            "pack_options":{
+                "side":"left",
+                "padx":"15"
+            }
+        }
+    }
+}
