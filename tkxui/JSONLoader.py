@@ -67,7 +67,7 @@ class JSONLoader():
 
         self.generate(json_file)
 
-    def generate(self, json_file=None):
+    def generate(self, json_file=None, master=None):
         if json_file == None:
             return
 
@@ -94,24 +94,41 @@ class JSONLoader():
             # Create each widget
             for zone in widget_queue:
                 for widget in zone:
-                    if widget['zone'] == "border":
-                        parent = "self.master.border"
-                    elif widget['zone'] == 'main':
-                        parent = "self.master"
-                    else:
-                        # A Custom Widget Handler object is its parent
-                        try:
-                            parent = "self.master." + widget['zone']
-                        except TypeError:
+                    if master == None:
+                        if widget['zone'] == "border":
+                            parent = "self.master.border"
+                        elif widget['zone'] == 'main':
                             parent = "self.master"
-                    
+                        else:
+                            # A Custom Widget Handler object is its parent
+                            try:
+                                parent = "self.master." + widget['zone']
+                            except TypeError:
+                                parent = "self.master"
+                        
+                        if widget["parent"] == '':
+                            draw_parent = "self.master"
+                        else:
+                            draw_parent = "self.master." + widget["parent"]
+
+                    else:
+                        # Widgets are reparented to another widget than the window
+                        if widget['zone'] == "main":
+                            parent = "self.master." + master
+                        else:
+                            # A Custom Widget Handler object is its parent
+                            try:
+                                parent = "self.master." + master  + "." + widget['zone']
+                            except TypeError:
+                                parent = "self.master." + master
+
+                        if widget["parent"] == '':
+                            draw_parent = "self.master." + master
+                        else:
+                            draw_parent = "self.master." + master + "." + widget["parent"]
+
                     widget_type = widget['widget_type'].split('#')[0]
                     config = widget["config"]
-
-                    if widget["parent"] == '':
-                        draw_parent = "self.master"
-                    else:
-                        draw_parent = "self.master." + widget["parent"]
 
                     self.create_widget(parent, widget_type, config.copy(), draw_parent=draw_parent)
 
@@ -237,9 +254,7 @@ class JSONLoader():
                 if name in self.__names:
                     apply_attr(self.__names[name], data[attr])
                 
-                if _class in self.__classes:
-                    print(_class)
-                
+                if _class in self.__classes:              
                     for widget in self.__classes[_class]:
                         apply_attr(widget, data[attr])
                

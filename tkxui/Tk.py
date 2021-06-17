@@ -193,7 +193,7 @@ class Tk(tk.Tk, tk.Toplevel):
             self.border.close.config(bg=self.default_border_attributes['close']['bg'])
             self.border.close.config(fg=self.default_border_attributes['close']['fg'])
 
-        self.border.close = tk.Button(self.border, text = "X", cursor="hand2", bg=self.default_border_attributes['close']['bg'], fg=self.default_border_attributes['close']['fg'], border=0, command = lambda: self.destroy(), font=("Consolas", 15))
+        self.border.close = tk.Button(self.border, text = "\u2A09", cursor="hand2", bg=self.default_border_attributes['close']['bg'], fg=self.default_border_attributes['close']['fg'], border=0, command = lambda: self.destroy(), font=("Consolas", 15))
         self.border.close.bind("<Enter>", on_closehover)
         self.border.close.bind("<Leave>", on_closeunhover)
         self.border.close.pack(side=tk.RIGHT)
