@@ -131,7 +131,7 @@ class Tk(tk.Tk, tk.Toplevel):
         # Make sure the window is on top of the CoreUI
         self.lift()
 
-        if self._has_default_border:
+        if self._has_default_border and self.is_frameless():
             self.default_border_attributes = {
                     'close' : {
                         'bg': self.cget('bg'),
