@@ -169,7 +169,7 @@ Here is what we get :</br>
 ![image](https://user-images.githubusercontent.com/56755685/121039777-ab2e2900-c7b1-11eb-98dc-3071d8c97d11.png)
 
 ## Themes
-The TkXUI library allows you apply themes and styles to your window. </br>
+The TkXUI library allows you to apply themes and styles to your window. </br>
 In order to do that, we need to create another JSON file that is going to contain the theme definition (like a ```style.css``` file in CSS) :
 ```json
 {
@@ -359,7 +359,7 @@ Here is an example of a custom window's border with only one close button and a 
     }
 }
 ```
-Because we create our own window, we may not display the default window's border. It is very easy, just set ```defaultBorder``` to ```False``` when you create your ```Tk``` object :
+Because we create our own border, we may not display the default window's border. It is very easy, just set ```defaultBorder``` to ```False``` when you create your ```Tk``` object :
 ```python
 root = tkxui.Tk(display=tkxui.FRAMELESS, defaultBorder=False)
 ```
